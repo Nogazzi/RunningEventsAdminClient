@@ -5,7 +5,7 @@
   </md-list-item>-->
   <md-list-item >
     <a md-line href="#"[routerLink]="['/teams/', team.id]" class="teamsListItem">{{team.name}}</a>
-    <button md-mini-fab (click)="removeEvent(team.id)"><md-icon>check</md-icon></button>
+    <button md-mini-fab (click)="removeTeam(team.id)"><md-icon>check</md-icon></button>
   </md-list-item>
 </md-list>
 <section *ngIf="errorMessage">

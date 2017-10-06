@@ -1,11 +1,12 @@
 <section>
-  <form  (ngSubmit)="registerNewTeam()" #sportEventForm="ngForm" >
+  <form  (ngSubmit)="registerNewTeam()" #newTeamForm="ngForm" >
 
     <div>
       <md-input-container class="example-full-width">
-        <input mdInput placeholder="Nazwa drużyny" #teamName>
+        <input mdInput placeholder="Nazwa drużyny" [(ngModel)]="team.name" name="name">
       </md-input-container>
     </div>
+
 
     <button md-raised-button type="submit">Save</button>
   </form>

@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import {Http, Response, Headers} from "@angular/http";
 import {Observable} from "rxjs";
+import "rxjs";
+import "rxjs/add/operator/map";
+import "rxjs/Rx";
+import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
 import {Team} from "../entities/team";
 
 @Injectable()
 export class TeamsService {
 
-  private baseUrl: string = 'http://localhost:8080/teams/';
+  private baseUrl: string = 'http://localhost:8091/teams/';
 
   constructor(private http: Http) { }
 
@@ -22,7 +27,7 @@ export class TeamsService {
 
   private getHeaders() {
     let headers = new Headers();
-    headers.append('Accept', 'application/json');
+    headers.append('Content-Type', 'application/json');
     return headers;
   }
 
@@ -40,19 +45,33 @@ export class TeamsService {
       .http
       .post(`${this.baseUrl}/load/${team.id}`, team, {headers: this.getHeaders()});
   }
-  registerNewTeam(team: Team): Observable<Response> {
-    return this
+  registerNewTeam(team: Team) {
+    console.log('Register team at: ', `${this.baseUrl}registernewteam`);
+    console.log('Formated request:', JSON.stringify(team));
+    this
       .http
-      .post(`${this.baseUrl}registerteam`,{body: JSON.stringify(team)}, {headers: this.getHeaders()});
+      .post(`${this.baseUrl}registernewteam`,JSON.stringify(team), {headers: this.getHeaders()})
+      .subscribe(
+        () => { console.log('Register should performed.');
+        },
+        err => console.error(err)
+      );
+
+    /*this.http
+      .post(`${this.baseUrl}registerevent`, JSON.stringify(sportEvent), {headers: this.getHeaders()})
+      .subscribe(
+        () => {
+        },
+        err => console.error(err)
+      );*/
   }
 
   removeTeam(id: number){
-    let result = this.http
-      .delete(`${this.baseUrl}${id}`, {headers: this.getHeaders()})
-      .catch(handleError);
     console.log('destination address for delete: ', `${this.baseUrl}${id}`);
-    console.log('delete result: ', result);
-    return result;
+    return this.http
+      .delete(`${this.baseUrl}${id}`, {headers: this.getHeaders()})
+      .subscribe(() => {})
+      .catch(handleError);
   }
 
 }

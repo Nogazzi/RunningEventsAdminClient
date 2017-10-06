@@ -1,27 +1,42 @@
-<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-  <div class="container">
-    <ul class="nav navbar-nav" routerLinkActive="active">
-      <ul class="nav-item"><button md-button [routerLink]="['races']">Lista wydarzeń</button></ul>
-      <ul class="nav-item"><button md-button [routerLink]="['registerevent']">Dodaj wydarzenie</button></ul>
-      <ul class="nav-item"><button md-button [routerLink]="['teams']">Drużyny</button></ul>
-      <ul class="nav-item"><button md-button [routerLink]="['registerteam']">Dodaj drużynę</button></ul>
-      <ul class="nav-item"><button md-button [routerLink]="['players']">Uczestnicy</button></ul>
-      <ul class="nav-item"><button md-button [routerLink]="['newplayer']">Dodaj uczestnika</button></ul>
-      <ul class="nav-item"><button md-button [routerLink]="['login']">Zaloguj</button></ul>
-    </ul>
-  </div>
-</nav>
-<!--<md-toolbar>
-  <button md-button [routerLink]="['races']">Lista wydarzeń</button>
-  <button md-button [routerLink]="['races/registerevent']">Dodaj wydarzenie</button>
-  <button md-button [routerLink]="['teams']">Drużyny</button>
-  <button md-button [routerLink]="['teams/registerteam']">Dodaj drużynę</button>
-  <button md-button [routerLink]="['players']">Uczestnicy</button>
-  <button md-button [routerLink]="['players/registerplayer']">Dodaj uczestnika</button>
+<div id="mainBody">
+  <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+    <div class="container">
+      <ul class="nav navbar-nav" routerLinkActive="active">
+        <ul class="nav-item">
+          <button md-button [routerLink]="['races']">Lista wydarzeń</button>
+        </ul>
+        <ul class="nav-item">
+          <button md-button [routerLink]="['registerevent']">Dodaj wydarzenie</button>
+        </ul>
+        <ul class="nav-item">
+          <button md-button [routerLink]="['teams']">Drużyny</button>
+        </ul>
+        <ul class="nav-item">
+          <button md-button [routerLink]="['registerteam']">Dodaj drużynę</button>
+        </ul>
+        <ul class="nav-item">
+          <button md-button [routerLink]="['players']">Uczestnicy</button>
+        </ul>
+        <ul class="nav-item">
+          <button md-button [routerLink]="['newplayer']">Dodaj uczestnika</button>
+        </ul>
+        <ul class="nav-item">
+          <button md-button [routerLink]="['login']">Zaloguj</button>
+        </ul>
+      </ul>
+    </div>
+  </nav>
+  <!--<md-toolbar>
+    <button md-button [routerLink]="['races']">Lista wydarzeń</button>
+    <button md-button [routerLink]="['races/registerevent']">Dodaj wydarzenie</button>
+    <button md-button [routerLink]="['teams']">Drużyny</button>
+    <button md-button [routerLink]="['teams/registerteam']">Dodaj drużynę</button>
+    <button md-button [routerLink]="['players']">Uczestnicy</button>
+    <button md-button [routerLink]="['players/registerplayer']">Dodaj uczestnika</button>
 
-</md-toolbar>-->
+  </md-toolbar>-->
 
 
-
-<router-outlet id="routerContainer"></router-outlet>
+  <router-outlet id="routerContainer"></router-outlet>
+</div>
 

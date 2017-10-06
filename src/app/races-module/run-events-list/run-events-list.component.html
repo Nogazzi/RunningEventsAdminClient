@@ -34,6 +34,7 @@
       <md-card-actions>
         <button md-button>WIĘCEJ</button>
         <button md-button href="#" [routerLink]="['/races/register/', sportevent.id]">ZAPISZ SIĘ</button>
+        <button md-button (click)="removeEvent(sportevent.id)">USUŃ BIEG</button>
       </md-card-actions>
     </md-card>
 

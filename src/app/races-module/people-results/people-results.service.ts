@@ -46,7 +46,8 @@ export class PeopleResultsService {
     console.log('Target url: ', `${this.baseResultsUrl}fillResults`);
     console.log("Stringify: ", JSON.stringify(id));
     this.http
-      .post(`${this.baseResultsUrl}fillResults`, JSON.stringify(id), {headers: this.getHeaders()})
+      .patch(`${this.baseResultsUrl}fillResults/${id}`, /*JSON.stringify(id),*/ {headers: this.getHeaders()})
+      .subscribe(() => console.log('Operation of generating random results should be performed'))
       .catch(handleError);
   }
 

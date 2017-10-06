@@ -30,4 +30,8 @@ export class TeamsListComponent implements OnInit {
 
   }
 
+  removeTeam(id: number){
+    console.log('You wanted to remove team with id: ', id);
+    this.teamService.removeTeam(id);
+  }
 }

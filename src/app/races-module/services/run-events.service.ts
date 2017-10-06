@@ -65,6 +65,7 @@ export class RunEventsService {
   removeEvent(id: number) {
     let result = this.http
       .delete(`${this.baseUrl}${id}`, {headers: this.getHeaders()})
+      .subscribe(console.log('Removing event with id=', id, ' should be performed'))
       .catch(handleError);
     console.log('destination address for delete: ', `${this.baseUrl}${id}`);
     console.log('delete result: ', result);
@@ -72,7 +73,7 @@ export class RunEventsService {
   }
 
   registerForRunEvent(raceRegistration: RaceRegistration) {
-    console.log("You wanna send registration: ", JSON.stringify(raceRegistration));
+    console.log('You wanna send registration: ', JSON.stringify(raceRegistration));
     let result = this.http
       .post(`${this.baseResultsUrl}registerResult`, JSON.stringify(raceRegistration), {headers: this.getHeaders()})
       .subscribe(
