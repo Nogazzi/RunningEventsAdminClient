@@ -70,8 +70,8 @@ export class TeamsService {
     console.log('destination address for delete: ', `${this.baseUrl}${id}`);
     return this.http
       .delete(`${this.baseUrl}${id}`, {headers: this.getHeaders()})
-      .subscribe(() => {})
-      .catch(handleError);
+      .subscribe(() => {},
+        err => console.error(err));
   }
 
 }

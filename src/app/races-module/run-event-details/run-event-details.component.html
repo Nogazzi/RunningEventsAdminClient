@@ -1,66 +1,8 @@
-<section *ngIf="sportEvent">
-  <section>
-    <h2>You selected: {{sportEvent.name}}</h2>
-    <h3>Description</h3>
-    <p>
-      {{sportEvent.name}} odbędzie się {{sportEvent.date}} w miejscowości {{sportEvent.localization}} na dystansie {{sportEvent.distance}}km.
-    </p>
+<section  *ngIf="sportEvent">
+  <section id="runEventDetails">
+    <h1>{{sportEvent.name}}</h1>
+    <h3>{{sportEvent.localization}}, {{sportEvent.date}}</h3>
+    <h3>Dystans: {{sportEvent.distance}}km</h3>
   </section>
-
-  <!-- form -->
-  <section>
-    <form (ngSubmit)="saveRunEventDetails()" #sportEventForm="ngForm">
-      <div>
-        <label for="name">Nazwa wydarzenia: </label>
-        <input type="text" name="name" required [(ngModel)]="sportEvent.name" #name="ngModel">
-        <div [hidden]="name.valid || name.pristine" class="error">
-          Name is required my good sir/lady!
-        </div>
-      </div>
-
-      <div>
-        <label for="organizer">Organizator: </label>
-        <input type="text" name="organizer" required [(ngModel)]="sportEvent.organizer" #organizer="ngModel">
-        <div [hidden]="organizer.valid || organizer.pristine" class="error">
-          Organizer is required my good sir/lady!
-        </div>
-      </div>
-
-
-      <div>
-        <label for="date">Data: </label>
-        <input type="date" name="date" required [(ngModel)]="sportEvent.date" #date="ngModel">
-        <div [hidden]="date.valid || date.pristine" class="error">
-          Date is required my good sir/lady!
-        </div>
-      </div>
-
-      <div>
-        <label for="localization">Lokalizacja: </label>
-        <input type="text" name="localization" required [(ngModel)]="sportEvent.localization" #localization="ngModel">
-        <div [hidden]="localization.valid || localization.pristine" class="error">
-          Localization is required my good sir/lady!
-        </div>
-      </div>
-
-      <div>
-        <label for="distance">Dystans: </label>
-        <input type="number" name="distance" required [(ngModel)]="sportEvent.distance" #distance="ngModel">
-        <div [hidden]="distance.valid || distance.pristine" class="error">
-          Distance is required my good sir/lady!
-        </div>
-      </div>
-
-      <div>
-        <label for="description">Opis: </label>
-        <input type="text" name="description" [(ngModel)]="sportEvent.description" #description="ngModel">
-      </div>
-
-      <button type="submit" [disabled]="!sportEventForm.form.valid">Save</button>
-    </form>
-  </section>
-
-  <button (click)="gotoRaceList()">Back to people list</button>
-</section>
 
 <app-people-results></app-people-results>

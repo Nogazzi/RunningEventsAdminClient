@@ -1,17 +1,29 @@
-.eventListItem{
+/*.eventListItem{
   display: block;
   margin: 20px;
-}
+}*/
 .descItems{
-  display: inline;
+  //display: inline;
 }
-.md-grid-tile {
+/*.md-grid-tile {
   margin: 20px;
-}
+}*/
 .mat-card-title{
   font-size: 22px;
 }
+
+.example-card{
+  width: 300px;
+}
 .mat-card{
+
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+md-list-item button{
+  //position: absolute;
+  float: right;
+
 }

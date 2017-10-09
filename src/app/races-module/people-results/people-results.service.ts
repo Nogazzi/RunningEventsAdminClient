@@ -30,6 +30,9 @@ export class PeopleResultsService {
   private getHeaders() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+    headers.append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
     return headers;
   }
 
@@ -47,8 +50,8 @@ export class PeopleResultsService {
     console.log("Stringify: ", JSON.stringify(id));
     this.http
       .patch(`${this.baseResultsUrl}fillResults/${id}`, /*JSON.stringify(id),*/ {headers: this.getHeaders()})
-      .subscribe(() => console.log('Operation of generating random results should be performed'))
-      .catch(handleError);
+      .subscribe(() => console.log('Operation of generating random results should be performed'),
+        err => console.error(err));
   }
 
   registerNewRunEvent(sportEvent: PersonResult) {

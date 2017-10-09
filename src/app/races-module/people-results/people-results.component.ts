@@ -26,8 +26,6 @@ export class PeopleResultsComponent implements OnInit {
       prop: 'firstName' },
     { name: 'Nazwisko',
       prop: 'lastName' },
-    { name: 'Data urodzenia',
-      prop: 'birthDate' },
     { name: 'Narodowość',
       prop: 'nationality' },
     { name: 'Druzyna',

@@ -1,3 +1,4 @@
+<h2 id="teamsHeader">Grupy treningowe:</h2>
 <md-list *ngFor="let team of teams">
   <!--<md-list-item >
     <a md-line href="#" [routerLink]="['/races/', sportevent.id]" class="eventListItem">{{sportevent.name}}</a>
@@ -5,9 +6,11 @@
   </md-list-item>-->
   <md-list-item >
     <a md-line href="#"[routerLink]="['/teams/', team.id]" class="teamsListItem">{{team.name}}</a>
-    <button md-mini-fab (click)="removeTeam(team.id)"><md-icon>check</md-icon></button>
+    <button md-mini-fab (click)="removeTeam(team.id)"><md-icon svgIcon="delete">DELETE</md-icon></button>
   </md-list-item>
 </md-list>
 <section *ngIf="errorMessage">
   {{errorMesage}}
 </section>
+
+<app-new-team></app-new-team>

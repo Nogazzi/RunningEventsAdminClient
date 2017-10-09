@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Team} from "../entities/team";
 import {TeamsService} from "../services/teams.service";
 import {Router} from "@angular/router";
+import {DomSanitizer} from "@angular/platform-browser";
+import {MdIconRegistry} from "@angular/material";
 
 @Component({
   selector: 'app-teams-list',
@@ -15,7 +17,13 @@ export class TeamsListComponent implements OnInit {
   isLoading: boolean = true;
 
   constructor(private teamService: TeamsService,
-              private router: Router) { }
+              private router: Router,
+              iconRegistry: MdIconRegistry,
+              sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+      'delete',
+      sanitizer.bypassSecurityTrustResourceUrl('../../assets/img/close.svg'));
+  }
 
   ngOnInit() {
     this.teamService

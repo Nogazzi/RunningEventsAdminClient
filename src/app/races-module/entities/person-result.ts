@@ -1,5 +1,5 @@
 export class PersonResult {
-  timeResult: number;
+  timeResult: string;
   playerNumber: number;
   firstName: string;
   lastName: string;

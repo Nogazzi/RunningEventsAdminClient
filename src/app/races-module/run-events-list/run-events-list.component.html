@@ -17,7 +17,7 @@
   {{errorMesage}}
 </section>-->
 
-<md-grid-list cols="3" >
+<md-grid-list cols="3" rowHeight="3:4">
   <md-grid-tile *ngFor="let sportevent of sportEvents">
 
     <md-card class="example-card">
@@ -41,3 +41,12 @@
 
   </md-grid-tile>
 </md-grid-list>
+
+<!--<md-list>
+  <md-list-item *ngFor="let sportevent of sportEvents">
+    <h2>{{sportevent.name}}</h2>
+    <h3>{{sportevent.localization}}, {{sportevent.date}}</h3>
+    <button md-mini-fab (click)="removeEvent(sportevent.id)"><md-icon>USUŃ</md-icon></button>
+  </md-list-item>
+</md-list>-->
+

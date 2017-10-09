@@ -31,6 +31,9 @@ export class RunEventsService {
   private getHeaders() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    // headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+    // headers.append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+    // headers.append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
     return headers;
   }
 
@@ -65,8 +68,10 @@ export class RunEventsService {
   removeEvent(id: number) {
     let result = this.http
       .delete(`${this.baseUrl}${id}`, {headers: this.getHeaders()})
-      .subscribe(console.log('Removing event with id=', id, ' should be performed'))
-      .catch(handleError);
+      .subscribe(
+        () => {
+        },
+        err => console.error(err));
     console.log('destination address for delete: ', `${this.baseUrl}${id}`);
     console.log('delete result: ', result);
     return result;
